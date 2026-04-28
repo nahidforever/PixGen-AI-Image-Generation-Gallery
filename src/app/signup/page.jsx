@@ -31,11 +31,18 @@ export default function SignUpPage() {
       image: image,
     });
 
-    console.log({ data, error });
-
     if (!error) {
       router.push("/");
     }
+
+    if (data) {
+      alert("SignUp Successfully");
+    }
+    if (error) {
+      alert(`${error.message}`);
+    }
+
+    console.log({ data, error });
   };
 
   return (

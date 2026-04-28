@@ -25,6 +25,12 @@ export default function SignInPage() {
       callbackURL: "/",
     });
 
+    if (data) {
+      alert("SignIn Successfully");
+    }
+    if (error) {
+      alert(`${error.message}`);
+    }
     console.log({ data, error });
   };
 
