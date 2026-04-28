@@ -11,6 +11,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { FaGoogle } from "react-icons/fa";
 
 export default function SignInPage() {
   const onSubmit = async (e) => {
@@ -32,6 +33,12 @@ export default function SignInPage() {
       alert(`${error.message}`);
     }
     console.log({ data, error });
+  };
+
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
   };
 
   return (
@@ -93,6 +100,12 @@ export default function SignInPage() {
           </Button>
         </div>
       </Form>
+
+      <p className="text-center">OR</p>
+
+      <Button variant="outline" className="w-full" onClick={handleGoogleSignIn}>
+        <FaGoogle /> Signin with Google
+      </Button>
     </Card>
   );
 }
